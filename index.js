@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.get("/", (req ,res)=>{
     res.send("Servidor On");
-    db.collection("test").insertOne({name: "teste"});
+    await db.collection("test").insertOne({name: "teste"});
 })
 
 //app.use routers here
