@@ -2,7 +2,7 @@ import express from "express";
 import chalk from "chalk";
 import dotenv from "dotenv";
 import cors from "cors";
-import db  from "./src/database/mongodb.js"
+import {db} from "./database/mongodb.js"
 
 //import routers here
 
