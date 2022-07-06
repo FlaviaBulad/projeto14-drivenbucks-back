@@ -3,6 +3,7 @@ import chalk from "chalk";
 import dotenv from "dotenv";
 import cors from "cors";
 import db  from "./src/database/mongodb.js"
+
 //import routers here
 
 dotenv.config();
@@ -12,9 +13,9 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/",  async (req ,res)=>{
-    
-    await db.collection("test").insertOne({name: "teste"});
-    res.send("Servidor On");
+  const test = req.body;
+  db.collection("teste").insertOne({name: "teste"});   
+  
 })
 
 //app.use routers here
