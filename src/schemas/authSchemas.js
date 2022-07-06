@@ -12,7 +12,7 @@ export const authSignUpSchema = joi.object({
     .options({ messages: { "any.only": "{{#label}} does not match" } }),
 });
 
-export const authLoginSchema = joi.object({
+export const authSignInSchema = joi.object({
   email: joi.string().email().required(),
   password: joi.string().required()
 });

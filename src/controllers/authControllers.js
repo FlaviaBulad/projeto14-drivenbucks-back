@@ -1,5 +1,5 @@
 import { db } from "../database/mongodb.js";
-import authSignUpSchema from "../schemas/authSchemas.js";
+import {authSignUpSchema, authSignInSchema} from "../schemas/authSchemas.js";
 
 import bcrypt from "bcrypt";
 
