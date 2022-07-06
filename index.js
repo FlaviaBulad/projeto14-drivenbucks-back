@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.get("/",  async (req ,res)=>{
     
-    db.collection("test").insertOne({name: "teste"});
+    await db.collection("test").insertOne({name: "teste"});
     res.send("Servidor On");
 })
 
