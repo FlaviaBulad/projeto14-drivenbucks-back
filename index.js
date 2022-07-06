@@ -2,7 +2,7 @@ import express from "express";
 import chalk from "chalk";
 import dotenv from "dotenv";
 import cors from "cors";
-
+import db  from "./src/database.js"
 //import routers here
 
 dotenv.config();
@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.get("/", (req ,res)=>{
     res.send("Servidor On");
+    db.collection("test").insertOne({name: "teste"});
 })
 
 //app.use routers here
