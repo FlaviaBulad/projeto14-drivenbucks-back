@@ -1,6 +1,6 @@
 import joi from "joi";
 
-const authSignUpSchema = joi.object({
+export const authSignUpSchema = joi.object({
   name: joi.string().min(1).required(),
   email: joi.string().email().required(),
   password: joi.string().min(3).max(15).required().label("Password"),
@@ -12,4 +12,8 @@ const authSignUpSchema = joi.object({
     .options({ messages: { "any.only": "{{#label}} does not match" } }),
 });
 
-export default authSignUpSchema;
+export const authLoginSchema = joi.object({
+  email: joi.string().email().required(),
+  password: joi.string().required()
+});
+
