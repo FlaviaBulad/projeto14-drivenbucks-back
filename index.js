@@ -12,8 +12,9 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/",  async (req ,res)=>{
+    
+    db.collection("test").insertOne({name: "teste"});
     res.send("Servidor On");
-    await db.collection("test").insertOne({name: "teste"});
 })
 
 //app.use routers here
