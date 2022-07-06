@@ -12,12 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/",  async (req ,res)=>{
-  const test = req.body;
-  db.collection("teste").insertOne({name: "teste"});   
-  
-})
-
 //app.use routers here
 
 const PORT = process.env.PORT || 5000;
