@@ -3,14 +3,17 @@ import authSignUpSchema from "../schemas/authSchemas.js";
 
 import bcrypt from "bcrypt";
 
-export async function CreateUser(req, res) {
+export async function createUser(req, res) {
   const newUser = req.body;
+
+  const SALT = 10;
+  const passwordHash = bcrypt.hashSync(newUser.password, SALT);
 
   await db.collection("users").insertOne({
     name: newUser.name,
     email: newUser.email,
-    password: newUser.password,
+    password: passwordHash,
   });
 
-  res.status(200).send("Cadastrou");
+  res.status(200).send("Usuário cadastrado com sucesso");
 }
