@@ -1,8 +1,9 @@
 import { db } from "../database/mongodb.js";
 import {authSignUpSchema, authSignInSchema} from "../schemas/authSchemas.js";
-
+import {v4 as uuid} from "uuid";
 import bcrypt from "bcrypt";
-import router from "../routes/authRoutes.js";
+
+
 
 export async function createUser(req, res) {
   try {
@@ -57,7 +58,7 @@ export async function loginUser(req, res){
     };
 
     const token = uuid();
-    await db.collection('sessions').insertOne({ token, userId: registeredUser._id });
+    await db.collection('sessions').insertOne({ token, userId: registeredUser._id , basket:[] });
 
     res.status(200).send({ token });
   } catch (error) {
