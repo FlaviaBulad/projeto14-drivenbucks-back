@@ -3,7 +3,7 @@ import chalk from "chalk";
 import dotenv from "dotenv";
 import cors from "cors";
 
-
+import productsRoutes from "./routes/productsRoutes.js"
 import authRoutes from "./routes/authRoutes.js";
 
 dotenv.config();
@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(authRoutes);
+app.use(productsRoutes);
 
 const PORT = process.env.PORT || 5000;
 
