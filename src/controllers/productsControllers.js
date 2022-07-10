@@ -5,14 +5,14 @@ export async function getProducts(req, res){
     const userToken = authorization?.replace("Bearer ", "");
     
     try {
-    const session = await db.collection("sessions").findOne({token:userToken});
-    
+    const session = await db.collection("sessions").find({}).toArray();
+
     if(!session){
         return res.status(404).send("token não existe!");
     };
     
     const products = await db.collection("products").find({}).toArray();
-    
+   
     res.status(200).send(products);
     
     } catch (error) {
