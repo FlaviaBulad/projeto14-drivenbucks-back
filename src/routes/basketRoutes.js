@@ -1,7 +1,14 @@
 import { Router } from "express";
 
-const basketRouter = Router();
+import { getUser } from "../middlewares/userMiddleware.js";
 
-basketRouter.get("/basket", getBasket);
+import { addToBasket, getBasket } from "../controllers/basketControllers.js";
 
-export default basketRouter;
+const router = Router();
+
+router.use(getUser);
+
+router.post("/basket", addToBasket);
+router.get("/basket", getBasket);
+
+export default router;
