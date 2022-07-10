@@ -48,7 +48,7 @@ export async function loginUser(req, res){
     };
 
     const registeredUser = await db.collection("users").findOne({email: user.email});
-	console.log(registeredUser);
+	
     if(!registeredUser){
       return res.status(422).send("Email ou senha inválidos")
     };
