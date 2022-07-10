@@ -1,11 +1,12 @@
 import { db } from "../database/mongodb.js";
 
 export async function getProducts(req, res){
-    try {
     const {authorization} = req.headers;
-    const token = authorization?.replace("Bearer ", "");
+    const userToken = authorization?.replace("Bearer ", "");
     
-    const session = await db.collection("sessions").findOne({token});
+    try {
+    const session = await db.collection("sessions").findOne({token:userToken});
+    
     if(!session){
         return res.status(404).send("token não existe!");
     };
