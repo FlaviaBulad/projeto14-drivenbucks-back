@@ -18,6 +18,6 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(
-    chalk.green.bold(`Server running on port: http://localhost:${PORT}`)
+    chalk.green.bold(`Server running on port: ${PORT}`)
   );
 });
