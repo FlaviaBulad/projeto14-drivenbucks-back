@@ -24,3 +24,15 @@ export async function getBasket(req, res) {
     res.status(500).send("Erro ao tentar pegar os produtos do carrinho", error);
   }
 }
+
+export async function clearBasket(req, res){
+  try {
+    const user = res.locals.user;
+    
+    await db.collection("basket").deleteMany({userId: user._id});
+  
+    res.status(200).send("produtos deletados da lista do usuário");
+  } catch (error) {
+    console.log(error);
+  }
+}
