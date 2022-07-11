@@ -32,14 +32,13 @@ export async function getBasket(req, res) {
   }
 }
 
-export async function clearBasket(req, res){
+export async function clearBasket(req, res) {
+  const user = res.locals.user;
   try {
-    const user = res.locals.user;
-    
-    await db.collection("basket").deleteMany({userId: user._id});
-  
+    await db.collection("basket").deleteMany({ userId: user._id });
+
     res.status(200).send("produtos deletados da lista do usuário");
   } catch (error) {
-    console.log(error);
+    res.status(500).send("Erro ao tentar limpar o carrinho", error);
   }
 }

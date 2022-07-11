@@ -15,4 +15,4 @@ mongoClient.connect(() => {
   console.log(chalk.magenta.bold("MongoDB connected"));
 });
 const objectId = ObjectId;
-export {db, objectId };
+export { db, objectId };
