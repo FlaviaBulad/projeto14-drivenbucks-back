@@ -66,4 +66,16 @@ export async function loginUser(req, res){
     console.log(error);
     res.status(500).send('Houve um problema ao logar o usuário');
   }
-}
+};
+
+export async function logoutUser(req, res){
+  try {
+    const user = res.locals.user;
+    
+    await db.collection("sessions").deleteMany({userId: user._id});
+  
+    res.status(200).send("Usuário deslogado");
+  } catch (error) {
+    console.log(error);
+  }
+};
