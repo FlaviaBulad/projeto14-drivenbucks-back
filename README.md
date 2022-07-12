@@ -1,6 +1,6 @@
 # Drivenbucks [API ONLY]
 
-Drivenbucks is a mobile application created in collaboration with @PauloGabrieel where you can order food from the most famous cafés.
+ Drivenbucks is a mobile application created in collaboration with @PauloGabrieel where you can order food from the most famous cafés.
 
 ## Features
 - Register your account
@@ -19,4 +19,5 @@ Drivenbucks uses a number of open source projects to work properly:
 - [node.js] - evented I/O for the backend
 - [Express] - fast node.js network app framework 
 - [joi] - The most powerful schema description language and data validator for JavaScript
+- [heroku] - a cloud platform where the API is deployed
 - and many others
